@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
+import Head from "next/head";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,6 +13,14 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
+      <Head>
+        <title>Social Network</title>
+        <meta
+          name="description"
+          content="A social network test app by Andrey Koshelev"
+        />
+        <link rel="icon" href="/favicon.ico?v=2" />
+      </Head>
       <Component {...pageProps} />
     </SessionProvider>
   );
