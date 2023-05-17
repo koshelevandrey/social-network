@@ -1,0 +1,29 @@
+.navbarItem {
+    @apply block relative cursor-pointer py-[5px] px-[23px] no-underline whitespace-nowrap text-center hover:text-[#63b3ed];
+
+    -webkit-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.navbarItem:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    border-bottom: solid 2px;
+    left: 0;
+    -webkit-transition: width .2s ease-in-out;
+    transition: width .2s ease-in-out;
+}
+
+.navbarItemInActive, .navbarItemActive {
+    @apply navbarItem;
+}
+
+.navbarItemInActive:hover:before, .navbarItemActive:before {
+    width: 100%;
+}
+
+.navbarItemActive {
+    color: #90cdf4;
+}

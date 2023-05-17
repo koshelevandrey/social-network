@@ -1,17 +1,18 @@
 import { type NextPage } from "next";
-import { AuthShowcase } from "~/components/AuthShowcase.component";
+import { useSession } from "next-auth/react";
+import { CreatePostForm } from "~/components/CreatePostForm";
+import { PostsGrid } from "~/components/PostsGrid";
 
 const Home: NextPage = () => {
+  const session = useSession();
+  const user = session?.data?.user;
+  const isAuthenticated = !!user?.id;
+
   return (
-    <>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#222] to-[#333]">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <div className="flex flex-col items-center gap-2">
-            <AuthShowcase />
-          </div>
-        </div>
-      </main>
-    </>
+    <div className="flex w-[100%] flex-col gap-2 px-4 py-3">
+      {isAuthenticated ? <CreatePostForm /> : null}
+      <PostsGrid />
+    </div>
   );
 };
 
