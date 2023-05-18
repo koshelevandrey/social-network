@@ -14,12 +14,7 @@ export const SideBar = () => {
       <ul className="mt-[20px] flex flex-col gap-y-[10px] font-spaceGrotesk">
         <SideBarLink href="/" label="Home" />
         {isAuthenticated ? (
-          <>
-            <SideBarLink href={`/profiles/${user.id}`} label="Profile" />
-            <SideBarLink href="/likes" label="Likes" />
-            <SideBarLink href="/follows" label="Follows" />
-            <SideBarLink href="/followers" label="Followers" />
-          </>
+          <SideBarLink href={`/profiles/${user.id}`} label="Profile" />
         ) : null}
       </ul>
     </nav>

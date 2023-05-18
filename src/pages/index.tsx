@@ -9,9 +9,9 @@ const Home: NextPage = () => {
   const isAuthenticated = !!user?.id;
 
   return (
-    <div className="flex w-[100%] flex-col gap-2 px-4 py-3">
+    <div className="flex w-[100%] flex-col px-4 py-3">
       {isAuthenticated ? <CreatePostForm /> : null}
-      <PostsGrid />
+      <PostsGrid className="mt-[20px]" />
     </div>
   );
 };

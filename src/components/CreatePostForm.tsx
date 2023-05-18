@@ -26,6 +26,7 @@ export const CreatePostForm = () => {
   const createNewPost = api.post.create.useMutation({
     onSuccess: () => {
       toast.success("Post was created");
+      setInputValue("");
     },
     onError: () => {
       toast.error("Failed to create a post");
