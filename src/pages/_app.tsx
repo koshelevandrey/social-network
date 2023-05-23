@@ -24,7 +24,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         />
       </Head>
       <div
-        className={`container mx-auto flex min-h-screen min-w-full flex-grow  bg-gradient-to-b from-[#222] to-[#333] font-poppins text-white`}
+        className={`container mx-auto flex min-h-screen min-w-full flex-grow bg-[#003366bf] font-poppins text-white`}
       >
         <SideBar />
         <Component {...pageProps} />
