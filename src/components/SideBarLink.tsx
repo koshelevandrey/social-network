@@ -10,10 +10,11 @@ interface SideBarItemProps {
 
 export const SideBarLink = ({ href, label, isActive }: SideBarItemProps) => {
   return (
-    <li
+    <Link
+      href={href}
       className={isActive ? styles.navbarItemActive : styles.navbarItemInActive}
     >
-      <Link href={href}>{label}</Link>
-    </li>
+      {label}
+    </Link>
   );
 };

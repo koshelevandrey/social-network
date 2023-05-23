@@ -5,7 +5,12 @@ import { SideBarLink } from "~/components/SideBarLink";
 import { useRouter } from "next/router";
 
 export const SideBar = () => {
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
+  const pathNameWithQueryProfileId = pathname.replace(
+    "[id]",
+    typeof query?.id === "string" ? query.id : ""
+  );
+
   const session = useSession();
   const user = session?.data?.user;
   const isAuthenticated = !!user?.id;
@@ -19,7 +24,7 @@ export const SideBar = () => {
           <SideBarLink
             href={`/profiles/${user.id}`}
             label="Profile"
-            isActive={pathname.startsWith("/profiles/")}
+            isActive={pathNameWithQueryProfileId === `/profiles/${user.id}`}
           />
         ) : null}
       </ul>
