@@ -22,13 +22,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
           name="description"
           content="A social network app by Andrey Koshelev"
         />
-        <link rel="icon" href="/favicon.ico?v=2" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <div
         className={`container mx-auto flex min-h-screen min-w-full flex-grow  bg-gradient-to-b from-[#222] to-[#333] font-poppins text-white`}
