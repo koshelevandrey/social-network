@@ -4,6 +4,10 @@
  */
 await import("./src/env.mjs");
 
+import TranspileModules from 'next-transpile-modules'
+
+const withTM = TranspileModules(["react-icons"]);
+
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -19,4 +23,5 @@ const config = {
     defaultLocale: "en",
   },
 };
-export default config;
+
+export default withTM(config);

@@ -1,10 +1,6 @@
 import { useRouter } from "next/router";
 
-interface ProfilePageProps {
-  id: string;
-}
-
-const ProfilePage = ({ id }: ProfilePageProps) => {
+const ProfilePage = () => {
   const router = useRouter();
 
   return (

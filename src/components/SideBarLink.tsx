@@ -1,20 +1,20 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 import Link from "next/link";
 import styles from "../styles/SideBarLink.module.css";
 
 interface SideBarItemProps {
   href: string;
-  label: string;
+  children: ReactNode;
   isActive: boolean;
 }
 
-export const SideBarLink = ({ href, label, isActive }: SideBarItemProps) => {
+export const SideBarLink = ({ href, children, isActive }: SideBarItemProps) => {
   return (
     <Link
       href={href}
       className={isActive ? styles.navbarItemActive : styles.navbarItemInActive}
     >
-      {label}
+      {children}
     </Link>
   );
 };

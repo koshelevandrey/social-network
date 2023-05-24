@@ -43,7 +43,7 @@ export const PostsGrid = ({ className = "" }: PostsGridProps) => {
       loader={"Loading..."}
       dataLength={posts.length}
     >
-      <div className={`flex flex-wrap gap-6 ${className}`}>
+      <div className={`flex flex-wrap gap-6 overflow-hidden ${className}`}>
         {posts.map((post) => (
           <PostCard key={post.id} likesCount={post._count.likes} {...post} />
         ))}

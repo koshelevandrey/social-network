@@ -15,6 +15,25 @@ export const postRouter = createTRPCRouter({
       });
     }),
 
+  toggleLike: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input: { id }, ctx }) => {
+      const userIdWithPostId = { userId: ctx.session.user.id, postId: id };
+      const existingLike = await ctx.prisma.like.findUnique({
+        where: { userId_postId: userIdWithPostId },
+      });
+
+      if (!existingLike) {
+        await ctx.prisma.like.create({ data: userIdWithPostId });
+        return { addedLike: true };
+      }
+
+      await ctx.prisma.like.delete({
+        where: { userId_postId: userIdWithPostId },
+      });
+      return { addedLike: false };
+    }),
+
   // Allows to get posts infinitely based on post cursor
   latestPosts: publicProcedure
     .input(

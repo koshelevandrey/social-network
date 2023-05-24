@@ -11,7 +11,7 @@ export const Tooltip = ({ message, children }: TooltipProps) => {
       {children}
       <div
         className="pointer-events-none absolute left-[-50px] top-[-70px] z-10 rounded-[7px]
-      bg-[#003366] px-2 py-1 text-center text-white opacity-0 transition-opacity group-hover:opacity-100"
+      bg-[#ff9966] px-2 py-1 text-center text-white opacity-0 transition-opacity group-hover:opacity-100"
       >
         {message}
       </div>

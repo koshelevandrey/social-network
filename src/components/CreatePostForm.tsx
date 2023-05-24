@@ -1,4 +1,9 @@
-import React, { FormEvent, useLayoutEffect, useRef, useState } from "react";
+import React, {
+  type FormEvent,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { ProfileImage } from "~/components/ProfileImage";

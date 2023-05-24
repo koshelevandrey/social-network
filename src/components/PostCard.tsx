@@ -1,7 +1,7 @@
 import React from "react";
-import { ProfileImage } from "~/components/ProfileImage";
 import type { User } from "next-auth";
 import Link from "next/link";
+import { ProfileImage } from "~/components/ProfileImage";
 import { LikeButton } from "~/components/LikeButton";
 
 interface PostCardProps {
@@ -27,10 +27,7 @@ export const PostCard = ({
   createdAt,
 }: PostCardProps) => {
   return (
-    <div
-      key={id}
-      className="flex min-w-[300px] flex-grow flex-col rounded-[15px] shadow-xl"
-    >
+    <div className="flex min-w-[300px] flex-grow animate-fade-in-from-bottom flex-col rounded-[15px] shadow-xl">
       <div className="flex items-center gap-2 rounded-t-[15px] border-b bg-gradient-to-b from-neutral-700 to-neutral-800 px-4 py-2">
         <div className="max-w-[50px]">
           <Link href={`/profiles/${user.id}`}>
@@ -50,9 +47,10 @@ export const PostCard = ({
       <div className="relative min-h-[100px] flex-grow rounded-b-[15px] bg-gray-200 px-4 py-2 pb-[35px] text-lg text-black ">
         <p className="whitespace-pre-wrap">{content}</p>
         <LikeButton
+          postId={id}
           likesCount={likesCount}
           likedByMe={likedByMe}
-          className="absolute bottom-[5px] right-[10px]"
+          className="absolute bottom-[10px] right-[10px]"
         />
       </div>
     </div>
